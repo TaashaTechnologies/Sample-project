@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <parent>
+    <groupId>com.sample</groupId>
+    <artifactId>sample-project</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+ 
+ <artifactId>Repository</artifactId>
+  
+	<packaging>jar</packaging>
+	<dependencies>
+	
+	<dependency>
+        <groupId>com.sample.model</groupId>
+        <artifactId>Model</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+   			
+   		<dependency>
+        <groupId>org.hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <scope>runtime</scope>
+      </dependency>
+   		
+		
+   			
+	</dependencies>
+
+
+</project>
