@@ -81,3 +81,4 @@ DerivedData
 # STS Files #
 ###########
 .settings
+.classpath
