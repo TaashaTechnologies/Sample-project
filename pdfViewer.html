@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" ng-controller="AppCtrl">
+    <head>
+ <meta charset="utf-8" />
+        <title>Angular PDF.js demo</title>
+
+	<script src="https://rawgit.com/TaashaTechnologies/Sample-project/master/pdf.js"></script>
+	 <link rel="stylesheet" type="text/css" href="viewer.css">	
+        <script src="https://rawgit.com/TaashaTechnologies/Sample-project/master/angular.js"></script>		
+	<script src="https://rawgit.com/TaashaTechnologies/Sample-project/master/angular-pdfjs-viewer.js"></script>	
+
+	<script src="https://cdn.rawgit.com/TaashaTechnologies/Sample-project/master/pdf.worker.js"></script>
+        <style>
+          html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          .some-pdf-container {
+            width: 100%;
+            height: 100%;
+          }
+
+        </style>
+    </head>
+    <body>
+        <div class='some-pdf-container'>
+            <!-- Example of loading pdf from URL string. Note that this must be an interpolation string -->
+            <pdfjs-viewer src="https://rawgit.com/TaashaTechnologies/Sample-project/master/helloworld.pdf"></pdfjs-viewer>
+
+            <!-- 
+                Example of loading pdf from raw binary data. Note that this must be a scope variable.
+                Comment upper viewer out if you use this viewer (because multi pdf viewers are currently not supported)
+            -->
+            <!-- <pdfjs-viewer data="pdf.data"></pdfjs-viewer> -->
+        </div>
+    </body>
+</html>
+
+<script>
+angular.module('app', ['pdfjsViewer']);
+
+angular.module('app').controller('AppCtrl', function ($scope, $http, $timeout) {
+    var url = 'https://rawgit.com/TaashaTechnologies/Sample-project/master/helloworld.pdf';
+
+    $scope.pdf = {
+        src: url,  // get pdf source from a URL that points to a pdf
+        data: null // get pdf source from raw data of a pdf
+    };
+
+    getPdfAsArrayBuffer(url).then(function (response) {
+        $scope.pdf.data = new Uint8Array(response.data);
+    }, function (err) {
+        console.log('failed to get pdf as binary:', err);
+    });
+
+    function getPdfAsArrayBuffer (url) {
+        return $http.get(url, {
+            responseType: 'arraybuffer',
+            
+        });
+    }
+});
+
+</script>
+
+
+
+
+
