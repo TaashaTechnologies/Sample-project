@@ -27,7 +27,7 @@
     <body>
         <div class='some-pdf-container'>
             <!-- Example of loading pdf from URL string. Note that this must be an interpolation string -->
-            <pdfjs-viewer src="http://localhost:9001/RAWeb/v1/order/document/view/1"></pdfjs-viewer>
+            <pdfjs-viewer src="https://rawgit.com/TaashaTechnologies/Sample-project/master/helloworld.pdf"></pdfjs-viewer>
 
             <!-- 
                 Example of loading pdf from raw binary data. Note that this must be a scope variable.
@@ -42,8 +42,7 @@
 angular.module('app', ['pdfjsViewer']);
 
 angular.module('app').controller('AppCtrl', function ($scope, $http, $timeout) {
-	console.log(JSON.parse(localStorage.getItem('pdfViewer')));
-    var url = "http://localhost:9001/RAWeb/v1/order/document/view/1";
+    var url = "https://rawgit.com/TaashaTechnologies/Sample-project/master/helloworld.pdf";
 
     $scope.pdf = {
         src: url,  // get pdf source from a URL that points to a pdf
