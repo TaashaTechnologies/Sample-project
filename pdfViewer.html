@@ -43,7 +43,7 @@ angular.module('app', ['pdfjsViewer']);
 
 angular.module('app').controller('AppCtrl', function ($scope, $http, $timeout) {
 	console.log(JSON.parse(localStorage.getItem('pdfViewer')));
-    var url = JSON.parse(localStorage.getItem('pdfViewer'));
+    var url = "http://localhost:9001/RAWeb/v1/order/document/view/1";
 
     $scope.pdf = {
         src: url,  // get pdf source from a URL that points to a pdf
